@@ -8,7 +8,7 @@ type (
 		BaseDN                    string
 		Datastore                 string
 		Insecure                  bool     // For LDAP and owncloud backend only
-		Servers                   []string // For LDAP and owncloud backend only
+		Servers                   []string // For LDAP and owncloud, keycloak backend only
 		NameFormat                string
 		GroupFormat               string
 		SSHKeyAttr                string
@@ -18,6 +18,9 @@ type (
 		Database                  string // For Database backends only
 		GroupWithSearchCapability string // For PamLinux backend only
 		AnonymousDSE              bool   // For Config and Database backends only
+		Realm                     string // For keycloak backend only
+		ClientID                  string // For keycloak backend only
+		ClientSecret              string // For keycloak backend only
 	}
 
 	Helper struct {

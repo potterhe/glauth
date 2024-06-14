@@ -130,6 +130,13 @@ func NewServer(opts ...Option) (*LdapSvc, error) {
 				handler.Monitor(s.monitor),
 				handler.Tracer(s.tracer),
 			)
+		case "keycloak":
+			h = handler.NewKeycloakHandler(
+				handler.Backend(backend),
+				handler.Logger(&s.log),
+				handler.Monitor(s.monitor),
+				handler.Tracer(s.tracer),
+			)
 		case "plugin":
 			plug, err := plugin.Open(backend.Plugin)
 			if err != nil {
